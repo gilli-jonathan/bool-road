@@ -5,6 +5,12 @@ function App() {
 
   return (
     <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<DefaultLayout />}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
 
     </>
   )

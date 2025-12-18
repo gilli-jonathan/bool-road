@@ -1,8 +1,14 @@
 import data from "../assets/data"
+import { useState } from "react"
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
 
-    console.log(data);
+    const [viaggi, setViaggi] = useState(data)
+    console.log(viaggi);
+
+
+
 
 
     return (
@@ -10,11 +16,21 @@ export default function Homepage() {
         <section className="homepage">
             <div className="container">
                 <div className="row row-cols-2 row-cols-lg-3">
-                    <div className="col">
-                        <div className="card"></div>
+                    {viaggi.map((journey => (
 
-                    </div>
+                        <div className="col" key={journey.id} >
+                            <Link to={`/${journey.id}`} >
 
+                                <div className="card" >
+                                    <h2>{journey.meta}</h2>
+                                    <h2>{journey.data_partenza}</h2>
+                                    <h2>{journey.data_ritorno}</h2>
+                                </div>
+                            </Link>
+                        </div>
+                    )))
+
+                    }
                 </div>
 
             </div>
